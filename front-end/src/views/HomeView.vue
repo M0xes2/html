@@ -1,17 +1,39 @@
 <template>
   <div>
     <CoolButton />
-    <ul>
-      <li v-for="game in games" :key="game">{{ game }}</li>
-    </ul>
+    <div class="container">
+      <CoolCards v-for="widget in widgets"
+        :key="widget.id"
+        :title="widget.title"
+        :img="widget.img" />
+    </div>
     <h1>Hiii</h1>
   </div>
 </template>
 
 <script setup>
+import {ref, onMounted} from "vue"
 import TheWelcome from '../components/TheWelcome.vue'
+const pokemon = ref("");
+
 import CoolButton from "../components/CoolButton.vue"
-let games = ["Portal", "Inscryption", "Fish"]
+import CoolCards from "../components/CoolCards.vue"
+const widgets = [{id:1, title:"Womp Womp", img: "https://i.imgur.com/EjOJYmu.jpeg"},
+{id:2, title:"Nuh uh", img: "https://i.imgur.com/EjOJYmu.jpeg"}]
+
+async function getPokemon() {
+  let res = await fetch("https://pokeapi.co/api/v2/pokemon");
+}
 </script>
 
+<style scoped>
+.container {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 90vw;
+    margin: 10px auto;
+    background-color:aquamarine;
+}
+</style>
 
