@@ -1,5 +1,5 @@
 <template>
-    <div></div>
+  <div>{{ pages }}</div>
 </template>
 
 <script setup>
