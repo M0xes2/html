@@ -11,6 +11,8 @@
   
   <script setup>
   import { ref } from "vue";
+  import { userStore } from "../stores/auth"
+  const userstore = userStore()
   const props = defineProps({
     title: String,
     path: String,
@@ -18,7 +20,6 @@
   });
   const user = ref("");
   const pass = ref("");
-  const pages = ref("");
   async function accountForm(username, password) {
     console.log(username);
     let res = await fetch(`http://localhost:3000/${ props.path }`, {
@@ -31,8 +32,9 @@
     });
   
     let data = await res.json();
-    pages.value = data;
+    if (data.token) {
+      console.log(userstore.addUserInfo(username, data.token))
+    }
     console.log(data);
   }
   </script>
-  
