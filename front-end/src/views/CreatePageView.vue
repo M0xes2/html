@@ -14,8 +14,13 @@
 </template>
 
 <script setup>
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
+import { useUserStore } from "../stores/auth";
+import { useRouter } from "vue-router";
+const userStore = useUserStore();
+const router = useRouter();
 
+const author = ref("");
 const name = ref("");
 const description = ref("");
 const response = ref("");
@@ -28,6 +33,7 @@ async function pageForm(name, description) {
       name: name,
       description: description,
       tags: [],
+      author: author,
     }),
   });
 
@@ -35,6 +41,16 @@ async function pageForm(name, description) {
   response.value = `Congrats on making your page. Page ID: ${data._id}`;
   console.log(response);
 }
+
+async function confirmUser() {
+  if (!(await userStore.confirmUser())) {
+    router.push("/login");
+  }
+}
+
+onMounted(() => {
+  confirmUser();
+});
 </script>
 
 <style>

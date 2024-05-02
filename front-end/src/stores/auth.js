@@ -1,11 +1,11 @@
 import { defineStore } from "pinia";
 
-export const userStore = defineStore("user", {
+export const useUserStore = defineStore("user", {
   state: () => {
     return {
       user: {
         username: "",
-        token: ""
+        token: "",
       },
     };
   },
@@ -15,16 +15,18 @@ export const userStore = defineStore("user", {
       this.user.token = token;
     },
     async confirmUser() {
+      console.log("Confirming...");
       let res = await fetch(`http://localhost:3000/protected`, {
-      method: "GET",
-      headers: { "Authorization": this.user.token }});
+        method: "GET",
+        headers: { Authorization: this.user.token },
+      });
       let data = await res.json();
-      if (data.username && data.username == this.user.username) {
-        return true
+      console.log(data.user);
+      if (data.user && data.user.username == this.user.username) {
+        return true;
       }
-      return false
+      return false;
     },
-
   },
   getters: {},
 });

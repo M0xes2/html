@@ -11,6 +11,10 @@
 
 <script setup>
 import { ref } from "vue";
+import { useUserStore } from "../stores/auth";
+import { useRouter } from "vue-router";
+const userStore = useUserStore();
+const router = useRouter();
 
 const id = ref("");
 const response = ref("");
@@ -25,4 +29,13 @@ async function pageDelete(id) {
   response.value = data;
   console.log(response);
 }
+async function confirmUser() {
+  if (!(await userStore.confirmUser())) {
+    router.push("/login");
+  }
+}
+
+onMounted(() => {
+  confirmUser();
+});
 </script>
