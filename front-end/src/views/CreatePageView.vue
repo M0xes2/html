@@ -33,7 +33,6 @@ async function pageForm(name, description) {
       name: name,
       description: description,
       tags: [],
-      author: author,
     }),
   });
 

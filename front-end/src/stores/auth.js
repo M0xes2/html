@@ -1,6 +1,7 @@
 import { defineStore } from "pinia";
 
 export const useUserStore = defineStore("user", {
+  persist: true,
   state: () => {
     return {
       user: {
@@ -27,6 +28,9 @@ export const useUserStore = defineStore("user", {
       }
       return false;
     },
+    async signOutUser() {
+      this.user = {user: "", token: ""}
+    }
   },
   getters: {},
 });
