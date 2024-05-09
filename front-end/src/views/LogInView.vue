@@ -1,5 +1,4 @@
 <template>
-  <div>
     <UserForm
       title="Log In"
       path="login"
@@ -8,7 +7,6 @@
     <nav>
     <RouterLink to="/signup">Don't have an account?</RouterLink>
     </nav>
-  </div>
 </template>
 
 <script setup>

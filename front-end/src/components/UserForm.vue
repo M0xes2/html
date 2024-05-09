@@ -6,13 +6,19 @@
       <input v-model="pass" placeholder="Password" />
       <button type="submit">{{ submitbutton }}</button>
     </form>
+    <p>{{ error }}</p>
   </div>
 </template>
 
 <script setup>
 import { ref } from "vue";
 import { useUserStore } from "../stores/auth";
+
+
 const userStore = useUserStore();
+if (userStore.getUsername()) {
+  history.back();
+}
 const props = defineProps({
   title: String,
   path: String,
@@ -20,6 +26,7 @@ const props = defineProps({
 });
 const user = ref("");
 const pass = ref("");
+const error = ref("");
 async function accountForm(username, password) {
   console.log(username);
   let res = await fetch(`http://localhost:3000/${props.path}`, {
@@ -32,9 +39,12 @@ async function accountForm(username, password) {
   });
 
   let data = await res.json();
-  if (data.token) {
+  if (data.success) {
     console.log(await userStore.addUserInfo(username, data.token));
-    console.log(data);
+    this.$forceUpdate();
+  }
+  else {
+    error.value = data.msg
   }
 }
 </script>

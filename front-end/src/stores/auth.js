@@ -5,7 +5,7 @@ export const useUserStore = defineStore("user", {
   state: () => {
     return {
       user: {
-        username: "",
+        username: null,
         token: "",
       },
     };
@@ -14,6 +14,9 @@ export const useUserStore = defineStore("user", {
     addUserInfo(username, token) {
       this.user.username = username;
       this.user.token = token;
+    },
+    getUsername() {
+      return this.user.username
     },
     async confirmUser() {
       console.log("Confirming...");

@@ -1,16 +1,21 @@
 <script setup>
 import { RouterLink, RouterView } from "vue-router";
-import HelloWorld from "./components/HelloWorld.vue";
+import { useUserStore } from "./stores/auth";
+const userStore = useUserStore();
+const username = userStore.getUsername()
 </script>
 
 <template>
+  <div>
   <nav>
     <RouterLink to="/">Home</RouterLink>
     <RouterLink to="/about">About</RouterLink>
     <RouterLink to="/add">New Page</RouterLink>
+    <RouterLink v-if="username" to="/signup">{{ username }}</RouterLink>
+    <RouterLink v-else to="/signup">Sign Up</RouterLink>
   </nav>
-
   <RouterView />
+  </div>
 </template>
 
 <style scoped>
