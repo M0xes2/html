@@ -15,7 +15,6 @@
 <script setup>
     import { ref } from "vue";
     import { inputStore } from "@/stores/input";
-    import inputText from "@/components/inputText.vue";
     const inputCounter = inputStore();
     const color = ref("");
     function getColor(){
