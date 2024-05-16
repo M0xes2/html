@@ -1,6 +1,7 @@
 <template>
     <div style="color:black;" class= "container">
         <Profile/>
+        <pageSelect/>
         <div>
             <h1>User: {{ storeCounter.user.username }}</h1>
         </div>
@@ -37,6 +38,7 @@
     import Profile from '@/components/Profile.vue';
     import { userStore } from '@/stores/user';
     import { ref } from "vue";
+    import pageSelect from '@/components/pageSelect.vue';
     const storeCounter = userStore();
     const color = ref("");
     const font_size = ref("")

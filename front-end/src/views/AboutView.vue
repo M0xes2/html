@@ -1,5 +1,5 @@
 <template>
-  <Profile/>
+  <pageSelect/>
   <div style="color:black;">
     <h1 class = "header">Card Designer</h1>
     <div class="container">
@@ -24,7 +24,6 @@ import { ref } from "vue";
 import { userStore } from "@/stores/user";
 import inputText from "@/components/inputText.vue";
 import inputColor from "@/components/inputColor.vue";
-import Profile from "@/components/Profile.vue";
 const storeCounter = userStore(); 
 const edit = ref("");
 const title = ref("");

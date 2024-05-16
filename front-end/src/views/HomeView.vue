@@ -1,5 +1,4 @@
 <template>
-  <Profile/>
   <div class = "container">
     <h1>Sign Up To Start!</h1>
     <div>
@@ -29,7 +28,6 @@
 </template>
 
 <script setup>
-  import Profile from "../components/Profile.vue"
   import { ref } from "vue";
   import { userStore } from "@/stores/user"
   const username = ref("");

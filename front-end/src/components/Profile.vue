@@ -52,11 +52,11 @@
     align-items:center;
     }
     //Profile
-    .dropdown {
+    .dropdown{
     display: inline-block;
     position: absolute;
     margin: 30px;
-    margin-right: 100px;
+    margin-right: 180px;
     right: 0;
     top: 0;
     }
