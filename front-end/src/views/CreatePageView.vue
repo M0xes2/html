@@ -28,7 +28,7 @@ async function pageForm(name, description) {
   console.log(name);
   let res = await fetch(`http://localhost:3000/add`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    headers: { "Content-Type": "application/json", Authorization: userStore.getUser().token },
     body: JSON.stringify({
       name: name,
       description: description,

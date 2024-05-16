@@ -1,8 +1,10 @@
 <template>
   <div>
     <h1>Hi {{ username }}!</h1>
-    <input type="file" ref="file" style="display: none" />
-    <button @click="openFileDialog">Upload Image</button>
+    <form action="http://localhost:3000/uploadPFP" method="POST" enctype="multipart/form-data">
+      <input type="file"  name="photo">
+      <input type="submit">
+    </form>
   </div>
 </template>
 
@@ -16,15 +18,13 @@ const username = ref("");
 const pfp = ref("");
 
 async function confirmUser() {
-  if (!(await userStore.confirmUser())) {
+  const data = await userStore.confirmUser()
+  if (!data) {
     router.push("/login");
   }
   username.value = data.user.username;
 }
 
-function openFileDialog() {
-  this.$refs.fileInput.$el.click();
-}
 onMounted(() => {
   confirmUser();
 });
