@@ -22,7 +22,7 @@
           <button @click="user.confirm(username, password)">Confirm</button>
         </RouterLink>
       <div>
-        <RouterLink to="/LoginView">Already have an account?</RouterLink>
+        <RouterLink to="/LogView">Already have an account?</RouterLink>
       </div>
     </div>
   </div>
