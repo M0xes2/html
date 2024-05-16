@@ -3,17 +3,24 @@
     <PageSetup
       :title="page.name"
       :description="page.description"
-      :tags="page.tags"
+      :author="page.author"
     />
+    <div v-if="page.author == userStore.getUser().username">
+      <button @click="router.push(`/edit/${route.params.id}`)">Edit</button>
+      <button @click="router.push(`/delete/${route.params.id}`)">Delete</button>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { onMounted, ref } from "vue";
 import PageSetup from "../components/Page.vue";
-import { useRoute } from "vue-router";
+import { useUserStore } from "../stores/auth";
+import { useRoute, useRouter } from "vue-router";
 
+const userStore = useUserStore();
 const route = useRoute();
+const router = useRouter();
 const page = ref("");
 async function getPages() {
   console.log(route.params.id);

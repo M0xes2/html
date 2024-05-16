@@ -1,8 +1,8 @@
 <template>
   <div>
     <h1>Delete Page</h1>
-    <form name="page_form" @submit.prevent="pageDelete(id)">
-      <input v-model="id" placeholder="Page ID" />
+    <form name="page_form" @submit.prevent="pageDelete()">
+      <p>Are you sure you want to delete your page?</p>
       <button type="submit">Delete Page</button>
     </form>
     <p>{{ response }}</p>
@@ -12,17 +12,21 @@
 <script setup>
 import { onMounted, ref } from "vue";
 import { useUserStore } from "../stores/auth";
-import { useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 const userStore = useUserStore();
 const router = useRouter();
+const route = useRoute();
 
-const id = ref("");
+const id = route.params.id;
 const response = ref("");
-async function pageDelete(id) {
+async function pageDelete() {
   console.log(id);
   let res = await fetch(`http://localhost:3000/remove/${id}`, {
     method: "DELETE",
-    headers: { "Content-Type": "application/json" },
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: userStore.getUser().token,
+    },
   });
 
   let data = await res.json();

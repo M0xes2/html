@@ -1,7 +1,7 @@
 <template>
   <div class="card">
     <h1 class="card-header">{{ title }}</h1>
-    Tags: {{ tags }}
+    Author: {{ author }}
     <h3>{{ description }}</h3>
   </div>
 </template>
@@ -10,6 +10,6 @@
 const props = defineProps({
   title: String,
   description: String,
-  tags: Array,
+  author: String,
 });
 </script>

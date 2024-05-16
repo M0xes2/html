@@ -15,8 +15,8 @@ export const useUserStore = defineStore("user", {
       this.user.username = username;
       this.user.token = token;
     },
-    getUsername() {
-      return this.user.username
+    getUser() {
+      return this.user;
     },
     async confirmUser() {
       console.log("Confirming...");
@@ -25,15 +25,15 @@ export const useUserStore = defineStore("user", {
         headers: { Authorization: this.user.token },
       });
       let data = await res.json();
-      console.log(data.user);
       if (data.user && data.user.username == this.user.username) {
-        return true;
+        return data;
       }
+      this.user = { user: null, token: "" };
       return false;
     },
-    async signOutUser() {
-      this.user = {user: "", token: ""}
-    }
+    signOutUser() {
+      this.user = { user: null, token: "" };
+    },
   },
   getters: {},
 });

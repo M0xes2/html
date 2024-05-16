@@ -13,11 +13,16 @@
 <script setup>
 import { ref } from "vue";
 import { useUserStore } from "../stores/auth";
-
+import { useRouter } from "vue-router";
 
 const userStore = useUserStore();
-if (userStore.getUsername()) {
-  history.back();
+if (userStore.getUser().username) {
+  if (history.length) {
+    history.back();
+  } else {
+    const router = useRouter();
+    router.push("/login");
+  }
 }
 const props = defineProps({
   title: String,
@@ -41,10 +46,9 @@ async function accountForm(username, password) {
   let data = await res.json();
   if (data.success) {
     console.log(await userStore.addUserInfo(username, data.token));
-    this.$forceUpdate();
-  }
-  else {
-    error.value = data.msg
+    location.reload();
+  } else {
+    error.value = data.msg;
   }
 }
 </script>

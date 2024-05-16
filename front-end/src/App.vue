@@ -2,19 +2,24 @@
 import { RouterLink, RouterView } from "vue-router";
 import { useUserStore } from "./stores/auth";
 const userStore = useUserStore();
-const username = userStore.getUsername()
+const username = userStore.getUser().username;
 </script>
 
 <template>
   <div>
-  <nav>
-    <RouterLink to="/">Home</RouterLink>
-    <RouterLink to="/about">About</RouterLink>
-    <RouterLink to="/add">New Page</RouterLink>
-    <RouterLink v-if="username" to="/signup">{{ username }}</RouterLink>
-    <RouterLink v-else to="/signup">Sign Up</RouterLink>
-  </nav>
-  <RouterView />
+    <nav>
+      <RouterLink to="/">Home</RouterLink>
+      <RouterLink to="/add">New Page</RouterLink>
+      <div v-if="username">
+        <RouterLink to="/user">{{ username }}</RouterLink>
+        <RouterLink to="/signout">Sign Out</RouterLink>
+      </div>
+      <div v-else>
+        <RouterLink to="/signup">Sign Up</RouterLink>
+        <RouterLink to="/login">Log In</RouterLink>
+      </div>
+    </nav>
+    <RouterView />
   </div>
 </template>
 
