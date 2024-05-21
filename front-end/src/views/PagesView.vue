@@ -5,7 +5,7 @@
       :description="page.description"
       :author="page.author"
     />
-    <div v-if="page.author == userStore.getUser().username">
+    <div v-if="page.author == userStore.getUser().user.username">
       <button @click="router.push(`/edit/${route.params.id}`)">Edit</button>
       <button @click="router.push(`/delete/${route.params.id}`)">Delete</button>
     </div>

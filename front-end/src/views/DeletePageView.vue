@@ -1,10 +1,12 @@
 <template>
-  <div>
+  <div class = "box">
     <h1>Delete Page</h1>
-    <form name="page_form" @submit.prevent="pageDelete()">
-      <p>Are you sure you want to delete your page?</p>
-      <button type="submit">Delete Page</button>
-    </form>
+    <div>
+      <form name="page_form" @submit.prevent="pageDelete()">
+        <p>Are you sure you want to delete your page?</p>
+        <button type="submit">Delete Page</button>
+      </form>
+    </div>
     <p>{{ response }}</p>
   </div>
 </template>
@@ -43,3 +45,21 @@ onMounted(() => {
   confirmUser();
 });
 </script>
+
+<style>
+  .box{
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      float: center;
+      background-color: lightgreen;
+      line-height: 2;
+      color: black;
+      border-radius: 20px;
+      height: 12.5vw;
+      padding-left: 200px;
+      padding-right: 200px;
+      text-align: center;
+    }
+</style>

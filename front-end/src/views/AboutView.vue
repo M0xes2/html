@@ -1,5 +1,4 @@
 <template>
-  <pageSelect/>
   <div style="color:black;">
     <h1 class = "header">Card Designer</h1>
     <div class="container">

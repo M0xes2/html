@@ -1,14 +1,13 @@
 <template>
-  <div>
+  <div class ="box">
     <h1>Create Page</h1>
     <form name="page_form" @submit.prevent="pageForm(name, description)">
-      <div class="container">
+      <div class ="box1">
         <input v-model="name" placeholder="Title" />
         <textarea v-model="description" placeholder="Description"></textarea>
         <button type="submit">Create Page</button>
       </div>
     </form>
-    <p>hi</p>
   </div>
 </template>
 
@@ -52,5 +51,23 @@ onMounted(() => {
 });*/
 </script>
 <style>
+  .box{
+      position: fixed;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      float: center;
+      background-color: lightgreen;
+      line-height: 2;
+      color: black;
+      border-radius: 20px;
+      height: 12.5vw;
+      padding-left: 200px;
+      padding-right: 200px;
+      text-align: center;
+    }
+    .box1{
+      width: 10px;
+    }
 
 </style>
