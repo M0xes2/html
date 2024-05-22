@@ -49,7 +49,7 @@ onMounted(() => {
 <style>
   .box{
       position: fixed;
-      top: 30%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
       float: center;
@@ -57,7 +57,7 @@ onMounted(() => {
       line-height: 2;
       color: black;
       border-radius: 20px;
-      height: 12.5vw;
+      height: 15.5vw;
       padding-left: 200px;
       padding-right: 200px;
       text-align: center;

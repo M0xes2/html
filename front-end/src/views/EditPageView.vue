@@ -1,9 +1,9 @@
 <!--Convert into component (consider reusing for patching pages in the future)-->
 <template>
-  <div>
+  <div class = "box">
     <h1>Update Page</h1>
     <form name="page_form" @submit.prevent="pageEdit(name, description)">
-      <div class="container">
+      <div class="box1">
         <input v-model="name" placeholder="Title" />
         <textarea v-model="description" placeholder="Description"></textarea>
         <button type="submit">Update Page</button>
@@ -14,6 +14,7 @@
 </template>
 
 <script setup>
+/*
 import { ref, onMounted } from "vue";
 import { useUserStore } from "../stores/auth";
 import { useRouter, useRoute } from "vue-router";
@@ -63,13 +64,26 @@ onMounted(() => {
   confirmUser();
   getPages();
 });
+*/
 </script>
 
 <style>
-.container {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-}
+  .box{
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        float: center;
+        background-color: lightgreen;
+        line-height: 2;
+        color: black;
+        border-radius: 20px;
+        height: 15.5vw;
+        padding-left: 200px;
+        padding-right: 200px;
+        text-align: center;
+      }
+  .box1{
+    width: 10px;
+  }
 </style>

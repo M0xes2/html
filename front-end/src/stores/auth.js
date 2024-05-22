@@ -34,6 +34,5 @@ export const useUserStore = defineStore("user", {
     signOutUser() {
       this.user = { user: null, token: "" };
     },
-  },
-  getters: {},
+  }
 });

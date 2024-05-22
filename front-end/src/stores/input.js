@@ -10,4 +10,4 @@ export const inputStore = defineStore({
       this.input_color = color;
     },
   }
-  })
+  });
