@@ -12,7 +12,7 @@
 </template>
 
 <script setup>
-/*import { ref, onMounted } from "vue";
+import { ref, onMounted } from "vue";
 import { useUserStore } from "../stores/auth";
 import { useRouter } from "vue-router";
 const userStore = useUserStore();
@@ -48,7 +48,7 @@ async function confirmUser() {
 
 onMounted(() => {
   confirmUser();
-});*/
+});
 </script>
 <style>
   .box{

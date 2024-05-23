@@ -13,6 +13,12 @@
           <button @click="storeCounter.addEditor(edit)" class="button">Add Text</button>
         </div>
         <inputColor/>
+        <div>
+          <RouterLink to ="/page/:id">View</RouterLink>
+          <RouterLink to = "/add">Create</RouterLink>
+          <RouterLink to = "/delete/:id">Delete</RouterLink>
+          <RouterLink to = "/edit/:id">Edit</RouterLink>
+        </div>
       </div>
     </div>
   </div>

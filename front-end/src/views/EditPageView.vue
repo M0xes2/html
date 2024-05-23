@@ -14,7 +14,6 @@
 </template>
 
 <script setup>
-/*
 import { ref, onMounted } from "vue";
 import { useUserStore } from "../stores/auth";
 import { useRouter, useRoute } from "vue-router";
@@ -64,7 +63,7 @@ onMounted(() => {
   confirmUser();
   getPages();
 });
-*/
+
 </script>
 
 <style>

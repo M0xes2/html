@@ -17,7 +17,6 @@
 </template>
 
 <script setup>
-/*
   import { onMounted, ref } from "vue";
   import PageSetup from "../components/Page.vue";
   import { useUserStore } from "../stores/auth";
@@ -40,7 +39,7 @@
   onMounted(() => {
     getPages();
   });
-  */
+
 </script>
 
 <style>
